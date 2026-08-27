@@ -110,7 +110,7 @@ def custom_func_wrapper(func: Callable, func_name: str, s: str, headers: dict, f
 
 def static_code_analysis(module_path, forbidden_imports=None, forbidden_calls=None):
     """
-    Perform static code analysis on a Python module to check for forbidden imports and function calls.
+    Best-effort static check for common unsafe imports and calls. Not a security sandbox.
     Returns a list of issues found.
     """
     if forbidden_imports is None:

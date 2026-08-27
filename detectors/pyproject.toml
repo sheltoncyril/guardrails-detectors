@@ -27,6 +27,7 @@ built-in = [
     "jsonschema==4.24.0",
     "xmlschema==4.1.0",
     "requests==2.32.5",
+    "regex>=2024.0.0",
 ]
 all = [
     "guardrails-detectors[huggingface,built-in]",

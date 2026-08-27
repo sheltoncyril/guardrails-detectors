@@ -1,3 +1,4 @@
+import io
 import json
 import logging
 
@@ -141,8 +142,7 @@ def is_valid_xml_schema(s: str, schema) -> Optional[ContentAnalysisResponse]:
     if is_valid is not None:
         return is_valid
     try:
-        # schema is expected to be a string containing the XSD
-        xs = xmlschema.XMLSchema(schema)
+        xs = xmlschema.XMLSchema(io.StringIO(schema), allow='none', defuse='always')
     except Exception:
         return ContentAnalysisResponse(
             start=0,

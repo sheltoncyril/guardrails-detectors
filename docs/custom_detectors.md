@@ -13,8 +13,12 @@ The following rules apply:
       * see the `over_100_characters` example in [custom_detectors.py](detectors/built_in/custom_detectors/custom_detectors.py) for usage
    3) Dict response that are parseable as a `ContentAnalysisResponse` object are considered a detection
       * see the `contains_word` example in [custom_detectors.py](detectors/built_in/custom_detectors/custom_detectors.py) for usage
-4) This code may not import `os`, `subprocess`, `sys`, or `shutil` for security reasons
-5) This code may not call `eval`, `exec`, `open`, `compile`, or `input` for security reasons
+4) This code may not import `os`, `subprocess`, `sys`, or `shutil`
+5) This code may not call `eval`, `exec`, `open`, `compile`, or `input`
+
+> **Security note:** Rules 4 and 5 are enforced by a static analysis check that catches common
+> unsafe patterns, but they are not a security sandbox. Custom detector code runs with full pod
+> privileges. Only mount `custom_detectors.py` from sources you trust.
 
 
 ## Utility Decorators
