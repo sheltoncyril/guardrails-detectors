@@ -3,7 +3,8 @@ FROM registry.access.redhat.com/ubi9/python-312:latest as base
 FROM base as builder
 
 COPY pyproject.toml .
-RUN pip install --no-cache-dir ".[built-in]"
+RUN mkdir -p common huggingface llm_judge && \
+    pip install --no-cache-dir ".[built-in]"
 
 FROM builder
 
